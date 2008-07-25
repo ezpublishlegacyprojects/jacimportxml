@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Beispieldefinition für Artikelimport-->
+<import>
+	<objects>
+		<object class_identifier="article" custom_id="eindeutige_object_id_2007_10_artikelid|name" created="" modified="" hide="true" initial_language="ger-DE" import_method="update">
+			<attributes>			
+				<attribute identifier="image"><objecrelation custom_id="bild1.jpg" /></attribute>
+				<attribute identifier="short_title">Kurztitel (wird in der URL verwendet)</attribute>
+				<attribute identifier="sub_title">Dachzeile</attribute>
+				<attribute identifier="title">Titel</attribute>
+				<attribute identifier="author">Autor</attribute>
+				<attribute identifier="intro">					
+					<![CDATA[Intro XML TEXT]]>
+				</attribute>
+				<attribute identifier="body">				
+					<![CDATA[Artikel (ohne Intro) XMLTEXT
+					Hier kommt schon fertiger ez xml code rein<embed-inline size="medium" align="center" href="ezobject://{##_custom_id=bild1.jpg_##}"/>]]>
+				</attribute>
+				<attribute identifier="keywords">Schlagwort1,Schlagwort2,Schlagwort3</attribute>
+				<attribute identifier="related_categories">Thema Objektrealtionlist Category</attribute>
+				<attribute identifier="related_companies">Firmenliste</attribute>
+				<attribute identifier="click_and_buy_code">ClickandBuy Link (nur Code)</attribute>
+				<attribute identifier="bezahl_content">1</attribute>
+				<attribute identifier="pdf_pages">Anzahl der PDF Seiten</attribute>							
+			</attributes>
+			<objektrelations>					
+					<object class_identifier="image" custom_id="bild1.jpg">
+						<attributes>
+							<attribute identifier="name">Bildename</attribute>
+							<attribute identifier="caption">Bildeuntertitel</attribute>
+							<attribute identifier="image">bild1.jpg</attribute>				
+						</attributes>
+					</object>
+					<object class_identifier="file" custom_id="file1.txt">
+						<attributes>
+							<attribute identifier="name">Filename</attribute>
+							<attribute identifier="description">Beschreibung des Files</attribute>
+							<attribute identifier="file">file1.txt</attribute>				
+						</attributes>
+					</object>
+					<object class_identifier="category" contentobject_id="" custom_id="desktop_themen" search_root_node_id="2" />
+					<object class_identifier="company" contentobject_id="" custom_id="firmaxy" search_root_node_id="2"" />								
+			</objektrelations>
+			<additionallanguages>
+				<language id="eng-GB">
+					<attributes>
+						<attribute identifier="title">eng</attribute>
+						<attribute identifier="body">eng</attribute>
+						<attribute identifier="intro">eng</attribute>
+					</attributes>
+				</language>
+				<language id="eng-US"></language>
+			</additionallanguages>
+		</object>
+		<object></object>
+	</objects>
+</import>
+<possibleclasses>
+<class id="23" identifier="article" name="Artikel">
+<attribute id="210" identifier="image" name="Titelbild (wenn benötigt zu Beginn einfügen!)" type="ezobjectrelation" is_required="0"/>
+<attribute id="213" identifier="short_title" name="Kurztitel (wird in der URL verwendet)" type="ezstring" is_required="0"/>
+<attribute id="214" identifier="sub_title" name="Dachzeile" type="ezstring" is_required="0"/>
+<attribute id="215" identifier="title" name="Titel" type="ezstring" is_required="1"/>
+<attribute id="216" identifier="author" name="Autor" type="ezstring" is_required="0"/>
+<attribute id="217" identifier="intro" name="Intro" type="ezxmltext" is_required="1"/>
+<attribute id="218" identifier="body" name="Artikel (ohne Intro)" type="ezxmltext" is_required="0"/>
+<attribute id="219" identifier="keywords" name="Schlagworte (bitte mit Komma getrennt eingeben)" type="ezkeyword" is_required="0"/>
+<attribute id="220" identifier="related_categories" name="Thema" type="ezobjectrelationlist" is_required="0"/>
+<attribute id="221" identifier="related_companies" name="Firmenliste" type="ezobjectrelationlist" is_required="0"/>
+<attribute id="212" identifier="click_and_buy_code" name="ClickandBuy Link (nur Code)" type="ezstring" is_required="0"/>
+<attribute id="211" identifier="bezahl_content" name="Bezahl-Content" type="ezboolean" is_required="0"/>
+<attribute id="237" identifier="pdf_pages" name="Anzahl der PDF Seiten" type="ezstring" is_required="0"/>
+</class>
+<class id="12" identifier="file" name="File">
+<attribute id="146" identifier="name" name="Name" type="ezstring" is_required="1"/>
+<attribute id="147" identifier="description" name="Description" type="ezxmltext" is_required="0"/>
+<attribute id="148" identifier="file" name="File" type="ezbinaryfile" is_required="1"/>
+</class>
+<class id="5" identifier="image" name="Image">
+<attribute id="116" identifier="name" name="Name" type="ezstring" is_required="1"/>
+<attribute id="117" identifier="caption" name="Caption" type="ezxmltext" is_required="0"/>
+<attribute id="118" identifier="image" name="Image" type="ezimage" is_required="0"/>
+</class>
+<class id="17" identifier="category" name="Kategorie">
+<attribute id="183" identifier="name" name="Name" type="ezstring" is_required="1"/>
+</class>
+<class id="18" identifier="company" name="Firma">
+<attribute id="184" identifier="company_name" name="Firmenname" type="ezstring" is_required="1"/>
+<attribute id="185" identifier="internal_company_id" name="Interne Firmen ID" type="ezinteger" is_required="0"/>
+</class>
+<class id="16" identifier="edition" name="Heftausgabe">
+<attribute id="181" identifier="name" name="Monate der Ausgabe" type="ezselection" is_required="1"/>
+<attribute id="182" identifier="title_image" name="Titelbild" type="ezobjectrelation" is_required="0"/>
+<attribute id="238" identifier="title" name="Titelthema" type="ezstring" is_required="0"/>
+<attribute id="239" identifier="description" name="Beschreibung" type="ezxmltext" is_required="0"/>
+<attribute id="309" identifier="index" name="Inhaltsverzeichnis" type="ezxmltext" is_required="0"/>
+</class>
+</possibleclasses>

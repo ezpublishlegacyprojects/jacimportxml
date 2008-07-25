@@ -1,0 +1,71 @@
+jacimportxml
+============
+
+
+Created By Felix Woldt felix_[at]_jac-systeme.de
+ 
+Copyright 2007 by Jac Systeme GmbH 
+http://www.jac-systeme.de
+
+Description:
+============
+export and import data about xmlfiles
+
+
+logic:
+1. every dataset has its own folder, in this folder they is a file definition.xml with all
+   the data
+2. a treesructure can be build with subfolders
+3. every dataset can have a unique remote_id which is uses may be for embed objectrelations
+
+
+dir1
++ #dir2
++ #dir3
+dir4
++ r#dir5
+definition.xml
+
+1. alle dirs mit # werden zuerst importiert bei normaler ordnerrekursion
+2. wenn in einem ordner r#dirs liegen werden diese vor dem eigentlichen import
+der definition.xml importiert in einen dummynode und nach import in den gerade angelegten knoten
+verschoben ( r#dirs wird benötigt bei eingebetten bildern in xml, die unter dem eigentlichen objekt liegen sollen )
+
+
+Requirements:
+=============
+
+uses the following extensions:
+
+- import
+
+Installation:
+=============
+
+1. change site.ini.append.php settings global:
+
+    [ExtensionSettings]
+    ActiveExtensions[]=import
+    ActiveExtensions[]=jacimportxml
+    
+    or in the siteaccess:
+    
+    [ExtensionSettings]
+    ActiveAccessExtensions[]=import
+    ActiveAccessExtensions[]=jacimportxml
+
+2. go to the admin siteaccess a new tab Import/Export will be displayed
+
+3. With http://ezurl/importxml/export you can choose a node to export
+   This will be generate a xmlstructure with the correct format that
+   you can import with this extension
+   
+    exportfiles are stored to   /var/project/jacimportxml/importxml
+    
+    
+4. import can be performed 
+        1. over the admininterface for smaller imports (take care with webservertimeout !!!)
+        2. second over the commandline
+            php extension/jacimportxml/bin/php/importxml.php -s sitaccess_name --to_node_id=43 --dir='var/fotoferien/jacimportxml/importxml/unique_import_remote_id_1443#event/'
+            
+    for every import it will be a csv file created in   /var/project/jacimportxml/importxml_csv
